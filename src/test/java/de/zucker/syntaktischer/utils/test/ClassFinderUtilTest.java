@@ -1,6 +1,5 @@
 package de.zucker.syntaktischer.utils.test;
 /// package's name
-package de.zucker.syntaktischer.utils.test;
 
 /// imports
 import org.junit.After;
@@ -35,9 +34,8 @@ public class ClassFinderUtilTest {
 	public void tearDown() {
 	}
 
-    // TODO add test methods here.
-	// The methods must be annotated with annotation @Test. For example:
-	//
-	// @Test
-	// public void hello() {}
+	 @Test
+	 public void test() {
+		 
+	 }
 }
