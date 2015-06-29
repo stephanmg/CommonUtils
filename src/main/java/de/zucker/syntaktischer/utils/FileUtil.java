@@ -21,7 +21,7 @@ import java.io.OutputStream;
  *
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
-public class FileUtils {
+public class FileUtil {
 	@SuppressWarnings("NestedAssignment")
 	private static void copyFile(File source, File dest) throws IOException {
 		InputStream is = null;
