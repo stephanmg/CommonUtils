@@ -1,5 +1,5 @@
 /// package's name
-package edu.gcsc.vrl.swcdensityvis.util;
+package de.zucker.syntaktischer.utils;
 
 /**
  * @brief memory utilities
