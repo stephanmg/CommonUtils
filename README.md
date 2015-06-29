@@ -1,5 +1,6 @@
 # CommonUtils
 
+
 ## VersionEye 
 * [![Dependency Status](https://www.versioneye.com/user/projects/5591247f396561001900001c/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5591247f396561001900001c)
 
@@ -11,3 +12,6 @@
 
 ## Travis
 * [![Build Status](https://travis-ci.org/stephanmg/CommonUtils.svg)](https://travis-ci.org/stephanmg/CommonUtils)
+
+## Coveralls
+* [![Coverage Status](https://coveralls.io/repos/stephanmg/CommonUtils/badge.svg)](https://coveralls.io/r/stephanmg/CommonUtils)

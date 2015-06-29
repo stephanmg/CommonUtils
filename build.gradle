@@ -22,6 +22,19 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
+apply plugin: 'jacoco'
+apply plugin: 'com.github.kt3k.coveralls'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
+    }
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 /// tasks ////////////////////////////////////////////////////////////
@@ -30,4 +43,63 @@ dependencies {
 // wrapper
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
+}
+
+// jacocoTestReport
+jacocoTestReport {
+    description = "Generates Jacoco coverage reports for unit tests"
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
+}
+
+/// setReport
+task testReport(type: TestReport) {
+    setDescription('Generates a test report from all subproject test tasks')
+    setGroup(JavaBasePlugin.DOCUMENTATION_GROUP)
+
+    //
+    // Keep track of total failure count for later test and output
+    //
+    def testFailures = 0
+
+    //
+    // Place the output in the root build reports directory by default
+    //
+    destinationDir = file("$buildDir/reports/allTests")
+
+    //
+    // Include the results from the `test` task in all subprojects.
+    // The TestReport task does not handle things well if a subproject 
+    // does not have the binary output, so this task assumes all subprojects 
+    // include the gradle java plugin!
+    //
+    reportOn subprojects*.test
+
+    //
+    // Every subproject should ignore test failures, but here we add a 
+    // test suite failure filter to ensure we keep track of the fact that
+    // failures have occurred (for the build failure check below)
+    //
+    subprojects {
+        test {
+            ignoreFailures true
+            afterSuite { td, tr ->
+                if (td.getParent() == null) {
+                    testFailures += tr.getFailedTestCount()
+                }
+            }
+        }
+    }
+
+    //
+    // The last thing to do in this task is to check for failures.  
+    // The build as a whole should fail if any tests failed.
+    //
+    doLast {
+        if (testFailures > 0) {
+           throw new Exception("There were ${testFailures} test failures")
+        }
+    }
 }
