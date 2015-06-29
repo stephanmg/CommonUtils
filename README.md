@@ -8,3 +8,6 @@
 [![Stories in Ready](https://badge.waffle.io/stephanmg/commonutils.png?label=ready&title=Ready)](http://waffle.io/stephanmg/commonutils)
 [![Stories in In Progress](https://badge.waffle.io/stephanmg/commonutils.png?label=in progress&title=In Progress)](http://waffle.io/stephanmg/commonutils)
 [![Stories in Done](https://badge.waffle.io/stephanmg/commonutils.png?label=done&title=Done)](http://waffle.io/stephanmg/commonutils)
+
+## Travis
+* [![Build Status](https://travis-ci.org/stephanmg/CommonUtils.svg)](https://travis-ci.org/stephanmg/CommonUtils)
