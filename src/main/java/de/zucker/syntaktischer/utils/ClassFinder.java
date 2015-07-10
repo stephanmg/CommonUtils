@@ -1,5 +1,5 @@
 /// package's name
-package edu.gcsc.vrl.neti.util;
+package de.zucker.syntaktischer.utils;
 
 /// imports
 import java.io.File;

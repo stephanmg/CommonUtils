@@ -2,7 +2,7 @@
 package de.zucker.syntaktischer.utils;
 
 /**
- * @brief memory utilities
+ * @brief Memory utilities
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public final class MemoryUtil {
