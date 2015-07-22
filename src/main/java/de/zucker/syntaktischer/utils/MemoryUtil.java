@@ -18,6 +18,22 @@ public final class MemoryUtil {
 	}
 	
 	/**
+	 * @brief TODO figure out 
+	 * @return
+	 */
+	public String printBitnessJVM() {
+		return "";
+	}
+	
+	/**
+	 * @brief returns the architecture 
+	 * @return 
+	 */
+	public String printBitness() {
+		return System.getProperty("os.arch");
+	}
+	
+	/**
 	 * @brief prints formatted heap memory statistics
 	 */
 	public void printHeapMemoryStatistics() {
