@@ -20,6 +20,7 @@ import java.util.zip.ZipInputStream;
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public class ClassFinder {
+	@SuppressWarnings("Convert2Diamond")
 	private static Class<?>[] getClasses(String packageName)
 		throws ClassNotFoundException, IOException {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -40,15 +41,15 @@ public class ClassFinder {
 	}
 
 	/**
-	 * Recursive method used to find all classes in a given directory and
-	 * subdirs.
+	 * @brief find all classes in a given directory and its subdirs
 	 *	 
-* @param directory The base directory
-	 * @param packageName The package name for classes found inside the base
-	 * directory
-	 * @return The classes
+	 * @param searchDirectory search directory
+	 * @param packageName package base name 
+	 * 
+	 * @return a list of classes
 	 * @throws ClassNotFoundException
 	 */
+	@SuppressWarnings("Convert2Diamond")
 	private static List<Class<?>> findClasses(File directory, String packageName) throws ClassNotFoundException {
 		List<Class<?>> classes = new ArrayList<Class<?>>();
 		if (!directory.exists()) {
@@ -76,11 +77,12 @@ public class ClassFinder {
 
 	/**
 	 * @brief helper
+	 * @param packageName
 	 */
-	public Class<?>[] findAllClasses(String pack) {
+	public Class<?>[] findAllClasses(String packageName) {
 		Class<?>[] clazzes = null;
 		try {
-			clazzes = getClasses(pack);
+			clazzes = getClasses(packageName);
 		} catch (ClassNotFoundException cnfe) {
 
 		} catch (IOException ioe) {

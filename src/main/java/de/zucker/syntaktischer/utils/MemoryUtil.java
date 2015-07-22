@@ -7,7 +7,8 @@ package de.zucker.syntaktischer.utils;
  */
 public final class MemoryUtil {
 	/// private static members
-	private static final int MiB = (int) Math.pow(1024, 2);
+	private static final int MIB = (int) Math.pow(1024, 2);
+	private static final Runtime RUNTIME = Runtime.getRuntime();
 	
 	/**
 	 * @brief ctor
@@ -17,19 +18,55 @@ public final class MemoryUtil {
 	}
 	
 	/**
-	 * @brief prints memory heap usage
+	 * @brief prints formatted heap memory statistics
 	 */
-	public static void printHeapMemoryUsage() {
-        	Runtime runtime = Runtime.getRuntime();
-         
-        	System.err.println("Used Memory:"
- 	           + (runtime.totalMemory() - runtime.freeMemory()) / MiB);
- 
-        	System.err.println("Free Memory:"
-           	 + runtime.freeMemory() / MiB);
-         
-        	System.err.println("Total Memory:" + runtime.totalMemory() / MiB);
- 
-        	System.err.println("Max Memory:" + runtime.maxMemory() / MiB);
+	public void printHeapMemoryStatistics() {
+		System.out.println(getHeapMemoryStatistics());
 	}
+	
+	/**
+	 * @brief returns memory information as String
+	 * @return
+	 */
+	private static String getHeapMemoryStatistics() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Used memory: "); sb.append(getUsedMemory());
+		sb.append("Free memory: "); sb.append(getFreeMemory());
+		sb.append("Total memory: "); sb.append(getTotalMemory());
+		sb.append("Max memory: "); sb.append(getMaxMemory());
+		return sb.toString();
+	}
+	
+	/**
+	 * @brief returns the used memory in MiB
+	 * @return 
+	 */
+	private static long getUsedMemory() {
+		return getTotalMemory() - getFreeMemory();
+	}
+
+	/**
+	 * @brief returns the free memory in MiB
+	 * @return 
+	 */
+	private static long getFreeMemory() {
+           	return RUNTIME.freeMemory() / MIB;
+	}
+	
+	/**
+	 * @brief returns the total memory in MiB
+	 * @return
+	 */
+	private static long getTotalMemory() {
+		return RUNTIME.totalMemory() / MIB;
+	}
+	
+	/**
+	 * @brief returns the max memory in MiB
+	 * @return 
+	 */
+	private static long getMaxMemory() {
+		return RUNTIME.maxMemory() / MIB;
+	}
+	
 }
