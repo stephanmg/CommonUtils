@@ -9,6 +9,7 @@ public final class MemoryUtil {
 	/// private static members
 	private static final int MIB = (int) Math.pow(1024, 2);
 	private static final Runtime RUNTIME = Runtime.getRuntime();
+	private static final String NL = System.getProperty("line.separator");
 	
 	/**
 	 * @brief ctor
@@ -21,7 +22,7 @@ public final class MemoryUtil {
 	 * @brief TODO figure out 
 	 * @return
 	 */
-	public String printBitnessJVM() {
+	public static String printBitnessJVM() {
 		return "";
 	}
 	
@@ -29,14 +30,14 @@ public final class MemoryUtil {
 	 * @brief returns the architecture 
 	 * @return 
 	 */
-	public String printBitness() {
+	public static String printBitness() {
 		return System.getProperty("os.arch");
 	}
 	
 	/**
 	 * @brief prints formatted heap memory statistics
 	 */
-	public void printHeapMemoryStatistics() {
+	public static void printHeapMemoryStatistics() {
 		System.out.println(getHeapMemoryStatistics());
 	}
 	
@@ -44,12 +45,12 @@ public final class MemoryUtil {
 	 * @brief returns memory information as String
 	 * @return
 	 */
-	private static String getHeapMemoryStatistics() {
+	public static String getHeapMemoryStatistics() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Used memory: "); sb.append(getUsedMemory());
-		sb.append("Free memory: "); sb.append(getFreeMemory());
-		sb.append("Total memory: "); sb.append(getTotalMemory());
-		sb.append("Max memory: "); sb.append(getMaxMemory());
+		sb.append("Used memory: "); sb.append(getUsedMemory()); sb.append(NL);
+		sb.append("Free memory: "); sb.append(getFreeMemory()); sb.append(NL);
+		sb.append("Total memory: "); sb.append(getTotalMemory()); sb.append(NL);
+		sb.append("Max memory: "); sb.append(getMaxMemory()); sb.append(NL);
 		return sb.toString();
 	}
 	
@@ -57,7 +58,7 @@ public final class MemoryUtil {
 	 * @brief returns the used memory in MiB
 	 * @return 
 	 */
-	private static long getUsedMemory() {
+	public static long getUsedMemory() {
 		return getTotalMemory() - getFreeMemory();
 	}
 
@@ -65,7 +66,7 @@ public final class MemoryUtil {
 	 * @brief returns the free memory in MiB
 	 * @return 
 	 */
-	private static long getFreeMemory() {
+	public static long getFreeMemory() {
            	return RUNTIME.freeMemory() / MIB;
 	}
 	
@@ -73,7 +74,7 @@ public final class MemoryUtil {
 	 * @brief returns the total memory in MiB
 	 * @return
 	 */
-	private static long getTotalMemory() {
+	public static long getTotalMemory() {
 		return RUNTIME.totalMemory() / MIB;
 	}
 	
@@ -81,7 +82,7 @@ public final class MemoryUtil {
 	 * @brief returns the max memory in MiB
 	 * @return 
 	 */
-	private static long getMaxMemory() {
+	public static long getMaxMemory() {
 		return RUNTIME.maxMemory() / MIB;
 	}
 	
