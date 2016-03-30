@@ -33,9 +33,4 @@ public class ClassFinderUtilTest {
 	@After
 	public void tearDown() {
 	}
-
-	 @Test
-	 public void test() {
-		 
-	 }
 }

@@ -48,11 +48,4 @@ public class FileUtilTest {
 	public void tearDown() {
 	}
 
-	/**
-	 * 
-	 */
-	@Test
-	public void test() {
-		
-	}
 }

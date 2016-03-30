@@ -48,11 +48,4 @@ public class MemoryUtilTest {
 	public void tearDown() {
 	}
 
-	/**
-	 * 
-	 */
-	@Test
-	public void test() {
-		
-	}
 }
