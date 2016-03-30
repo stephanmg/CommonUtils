@@ -19,6 +19,3 @@ Execute ./gradlew or ./gradlew.bat build
 
 ### Coveralls
 * [![Coverage Status](https://coveralls.io/repos/stephanmg/CommonUtils/badge.svg)](https://coveralls.io/r/stephanmg/CommonUtils)
-
-### Code metrics
-* [![Codacy Badge](https://api.codacy.com/project/badge/grade/8368201886db4e07b503f83a36db984e)](https://www.codacy.com/app/stephan_5/CommonUtils)
