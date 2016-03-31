@@ -34,8 +34,11 @@ public class ClassFinderUtilTest {
 	public void tearDown() {
 	}
 
-	 @Test
-	 public void test() {
-		 
-	 }
+	/**
+	 * @brief empty test
+	 */
+	@Test
+	public void test() {
+	 	assert(true);
+	}
 }

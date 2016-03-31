@@ -49,10 +49,10 @@ public class FileUtilTest {
 	}
 
 	/**
-	 * 
+	 * @brief empty test
 	 */
 	@Test
 	public void test() {
-		
+		assert(true);
 	}
 }
