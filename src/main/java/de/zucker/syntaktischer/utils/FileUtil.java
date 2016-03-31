@@ -15,7 +15,7 @@ import java.io.OutputStream;
  */
 public class FileUtil {
 	@SuppressWarnings("NestedAssignment")
-	private static void copyFile(File source, File dest) throws IOException {
+	public static void copyFile(File source, File dest) throws IOException {
 		InputStream is = null;
 		OutputStream os = null;
 		try {

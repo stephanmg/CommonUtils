@@ -10,13 +10,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * @brief test the class finder
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public class ClassFinderUtilTest {
-
-	public ClassFinderUtilTest() {
-	}
 
 	@BeforeClass
 	public static void setUpClass() {
@@ -39,6 +36,6 @@ public class ClassFinderUtilTest {
 	 */
 	@Test
 	public void test() {
-		assert (true);
+		assertEquals(1, 1);
 	}
 }

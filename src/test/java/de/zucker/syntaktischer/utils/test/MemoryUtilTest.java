@@ -7,19 +7,13 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
- * @brief MemoryUtil tests
+ * @brief tests the memory util
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public class MemoryUtilTest {
-
-	/**
-	 *
-	 */
-	public MemoryUtilTest() {
-	}
-
 	/**
 	 *
 	 */
@@ -53,6 +47,6 @@ public class MemoryUtilTest {
 	 */
 	@Test
 	public void test() {
-		assert (true);
+		assertEquals(1, 1);
 	}
 }

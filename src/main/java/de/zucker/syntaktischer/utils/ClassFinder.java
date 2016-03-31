@@ -20,6 +20,7 @@ import java.util.zip.ZipInputStream;
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public class ClassFinder {
+
 	@SuppressWarnings("Convert2Diamond")
 	private static Class<?>[] getClasses(String packageName)
 		throws ClassNotFoundException, IOException {
@@ -42,10 +43,10 @@ public class ClassFinder {
 
 	/**
 	 * @brief find all classes in a given directory and its subdirs
-	 *	 
+	 *
 	 * @param searchDirectory search directory
-	 * @param packageName package base name 
-	 * 
+	 * @param packageName package base name
+	 *
 	 * @return a list of classes
 	 * @throws ClassNotFoundException
 	 */
@@ -66,13 +67,6 @@ public class ClassFinder {
 			}
 		}
 		return classes;
-	}
-
-	/**
-	 * @brief ctor
-	 */
-	public ClassFinder() {
-
 	}
 
 	/**
@@ -119,7 +113,7 @@ public class ClassFinder {
 		for (File file : files) {
 			if (!file.isDirectory()) {
 				System.out.print("     file:");
-				
+
 				URL jar = null;
 				try {
 					jar = file.toURI().toURL();
@@ -142,8 +136,8 @@ public class ClassFinder {
 							list.add(entryName);
 							System.err.println("entry: " + entryName.replace("/", "."));
 							try {
-								System.err.println("to load: "+ entryName.substring(0, entryName.length()-6));
-								Class.forName(entryName.substring(0, entryName.length()-6).replace("/", "."));
+								System.err.println("to load: " + entryName.substring(0, entryName.length() - 6));
+								Class.forName(entryName.substring(0, entryName.length() - 6).replace("/", "."));
 							} catch (ClassNotFoundException ex) {
 								Logger.getLogger(ClassFinder.class.getName()).log(Level.SEVERE, null, ex);
 								System.err.println("error!");
@@ -161,7 +155,7 @@ public class ClassFinder {
 
 	/**
 	 * @brief main (some tests)
-	 * @param args 
+	 * @param args
 	 */
 	public static void main(String... args) {
 		new ClassFinder().test();
