@@ -13,6 +13,7 @@ import javax.swing.JFrame;
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public class Overview extends JFrame {
+
 	private final MemoryUpdateListModel memoryUpdateListModel = new MemoryUpdateListModel();
 	private static final long serialVersionUID = 1L;
 	private final long SLEEP_INTERVAL_IN_MS = 5000;
@@ -204,14 +205,14 @@ public class Overview extends JFrame {
         private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
                 // TODO add your handling code here:
 
-				
+
         }//GEN-LAST:event_jCheckBox2ActionPerformed
 
 	@SuppressWarnings({"SleepWhileInLoop", "unchecked"})
         private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
 		toggleMemoryRefresh++;
 		final boolean quit = (toggleMemoryRefresh % 2) == 0;
-		
+
 		if (!quit) {
 			new Thread(
 				new Runnable() {
@@ -224,12 +225,12 @@ public class Overview extends JFrame {
 							} catch (InterruptedException ex) {
 								Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
 							}
-							
+
 							if (quit) {
 								toggleMemoryRefresh = 0;
 								return;
 							}
-								
+
 						}
 					}
 				}
@@ -246,11 +247,6 @@ public class Overview extends JFrame {
 	 * @param args the command line arguments
 	 */
 	public static void main(String args[]) {
-		/* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-		 * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-		 */
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {
@@ -267,7 +263,7 @@ public class Overview extends JFrame {
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
 			Logger.getLogger(Overview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
-        //</editor-fold>
+		//</editor-fold>
 
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			@Override
@@ -303,42 +299,44 @@ public class Overview extends JFrame {
         private javax.swing.JMenuItem saveAsMenuItem;
         private javax.swing.JMenuItem saveMenuItem;
         // End of variables declaration//GEN-END:variables
-	
+
 	/**
 	 * @brief list model for memory updates
 	 */
 	private final class MemoryUpdateListModel extends AbstractListModel<String> {
+
 		private static final long serialVersionUID = 1L;
-        	final String[] strings = { "Used: ", "Free: ", "Max: ", "Total: " };
+		final String[] strings = {"Used: ", "Free: ", "Max: ", "Total: "};
+
 		/**
 		 * @brief get list size
-		 * @return 
+		 * @return
 		 */
 		@Override
-       		public int getSize() { 
-			return strings.length; 
+		public int getSize() {
+			return strings.length;
 		}
-	
+
 		/**
-		 * @brief get element with index i
+		 * @brief get element at index i
 		 * @param i
-		 * @return 
+		 * @return
 		 */
 		@Override
-        	public String getElementAt(int i) { 
+		public String getElementAt(int i) {
 			return get_element_at(i);
 		}
 
 		/**
-		 * 
+		 * @brief get gelement at index i 
 		 * @param i
-		 * @return 
+		 * @return
 		 */
 		private String get_element_at(int i) {
 			if (i == 0) {
 				return strings[0] + MemoryUtil.getUsedMemory() + "MiB";
 			} else if (i == 1) {
-				return strings[1] + MemoryUtil.getFreeMemory()+ "MiB";
+				return strings[1] + MemoryUtil.getFreeMemory() + "MiB";
 			} else if (i == 2) {
 				return strings[2] + MemoryUtil.getMaxMemory() + "MiB";
 			} else if (i == 3) {
