@@ -72,15 +72,17 @@ public class ClassFinder {
 	/**
 	 * @brief helper
 	 * @param packageName
+	 * @return Class<?>[] 
 	 */
 	public Class<?>[] findAllClasses(String packageName) {
 		Class<?>[] clazzes = null;
 		try {
 			clazzes = getClasses(packageName);
 		} catch (ClassNotFoundException cnfe) {
+			System.err.println("Class not found: " + cnfe);
 
 		} catch (IOException ioe) {
-
+			System.err.println("IO Exception: " + ioe);
 		}
 		return clazzes;
 	}
@@ -97,6 +99,7 @@ public class ClassFinder {
 
 	/**
 	 * @brief finds all classes in the given jar file
+	 * @todo needs refactoring
 	 */
 	@SuppressWarnings("NestedAssignment")
 	public void findAll() {

@@ -12,13 +12,6 @@ public final class MemoryUtil {
 	private static final String NL = System.getProperty("line.separator");
 
 	/**
-	 * @brief ctor
-	 */
-	private MemoryUtil() {
-
-	}
-
-	/**
 	 * @brief TODO figure out
 	 * @return
 	 */

@@ -14,6 +14,13 @@ import java.io.OutputStream;
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public class FileUtil {
+
+	/**
+	 * @brief copy a file from source to test
+	 * @param source
+	 * @param dest
+	 * @throws IOException
+	 */
 	@SuppressWarnings("NestedAssignment")
 	public static void copyFile(File source, File dest) throws IOException {
 		InputStream is = null;
