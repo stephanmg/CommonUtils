@@ -9,7 +9,7 @@ import javax.swing.AbstractListModel;
 import javax.swing.JFrame;
 
 /**
- *
+ * @brief small GUI class to show memory statistics
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public class Overview extends JFrame {
@@ -20,7 +20,7 @@ public class Overview extends JFrame {
 	private transient int toggleMemoryRefresh = 0;
 
 	/**
-	 * Creates new form Overview
+	 * @brief init components
 	 */
 	public Overview() {
 		initComponents();
@@ -328,7 +328,7 @@ public class Overview extends JFrame {
 		}
 
 		/**
-		 * @brief get gelement at index i 
+		 * @brief get gelement at index i
 		 * @param i
 		 * @return
 		 */

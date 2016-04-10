@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * @brief test suite
+ * @brief master test suite
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 @RunWith(Suite.class)
