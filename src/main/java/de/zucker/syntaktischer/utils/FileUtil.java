@@ -14,7 +14,6 @@ import java.io.OutputStream;
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public class FileUtil {
-
 	/**
 	 * @brief copy a file from source to test
 	 * @param source

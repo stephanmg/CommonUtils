@@ -20,7 +20,13 @@ import java.util.zip.ZipInputStream;
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public class ClassFinder {
-
+	/**
+	 * @brief get all classes for a given package
+	 * @param packageName name of the package
+	 * @return all classes for the package
+	 * @throws ClassNotFoundException
+	 * @throws IOException 
+	 */
 	@SuppressWarnings("Convert2Diamond")
 	private static Class<?>[] getClasses(String packageName)
 		throws ClassNotFoundException, IOException {
@@ -43,10 +49,8 @@ public class ClassFinder {
 
 	/**
 	 * @brief find all classes in a given directory and its subdirs
-	 *
 	 * @param searchDirectory search directory
 	 * @param packageName package base name
-	 *
 	 * @return a list of classes
 	 * @throws ClassNotFoundException
 	 */
@@ -70,7 +74,7 @@ public class ClassFinder {
 	}
 
 	/**
-	 * @brief helper
+	 * @brief helper method
 	 * @param packageName
 	 * @return Class<?>[] 
 	 */
@@ -89,6 +93,7 @@ public class ClassFinder {
 
 	/**
 	 * @brief some tests with output
+	 * @todo this has to be removed
 	 */
 	public void test() {
 		System.err.println("Package name: " + getClass().getPackage().getName());
@@ -157,7 +162,7 @@ public class ClassFinder {
 	}
 
 	/**
-	 * @brief main (some tests)
+	 * @brief main (run some tests when run)
 	 * @param args
 	 */
 	public static void main(String... args) {

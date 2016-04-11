@@ -1,27 +1,53 @@
 /// package's name
 package de.zucker.syntaktischer.utils;
 
+/// imports
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
- * @brief Memory utilities
+ * @brief memory utilities
  * @author stephanmg <stephan@syntaktischer-zucker.de>
  */
 public final class MemoryUtil {
-	/// private static members
 	private static final int MIB = (int) Math.pow(1024, 2);
 	private static final Runtime RUNTIME = Runtime.getRuntime();
 	private static final String NL = System.getProperty("line.separator");
 
 	/**
-	 * @brief TODO figure out
-	 * @return
+	 * @brief get the architecture of the JVM 
+	 * Note: This could be different from the OS architecture
+	 * @return bitness of JVM
 	 */
 	public static String printBitnessJVM() {
+		try {
+			Process p = Runtime.getRuntime().exec("java -version");
+			try {
+				p.waitFor();
+			} catch (InterruptedException iex) {
+				System.err.println("Error: Could not wait for command: 'java -version': " + iex);
+			}
+
+			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line = "";
+			while ((line = reader.readLine()) != null) {
+				if (line.matches(".*64.*")) {
+					return "64bit";
+				}
+				if (line.matches(".*32.*")) {
+					return "32bit";
+				}
+			}
+		} catch (IOException ioe) {
+			System.err.println("Error: Could not execute command 'java -version' or read from its inputstream: " + ioe);
+		}
 		return "";
 	}
 
 	/**
 	 * @brief returns the architecture
-	 * @return
+	 * @return bitness of OS
 	 */
 	public static String printBitness() {
 		return System.getProperty("os.arch");
