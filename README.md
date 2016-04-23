@@ -1,6 +1,8 @@
 # CommonUtils
 A collection of common utilities which occur multiple times if limited to JDK 6.
 
+For JDK 7 the builtin functions should be ptefered over this package.
+
 ## Build instructions
 Execute ./gradlew or ./gradlew.bat build
 
